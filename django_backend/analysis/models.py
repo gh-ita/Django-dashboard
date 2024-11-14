@@ -3,14 +3,14 @@ from django.db import models
 
 class Customer(models.Model):
     REGION_CHOICE = [
-        ("N", "North"),
-        ("W", "West"),
-        ("S", "South"),
-        ("E", "East")
+        ("North", "N"),
+        ("West", "W"),
+        ("South", "S"),
+        ("East", "E")
     ]
     GENDER_CHOICE = [
-        ("M", "Male"),
-        ("F", "Female")
+        ("Male", "M"),
+        ("Female", "F")
     ]
     customer_id = models.IntegerField(primary_key=True)
     region = models.CharField(max_length=7, choices= REGION_CHOICE)
@@ -38,6 +38,7 @@ class Policy(models.Model):
     premium = models.IntegerField()
     collision = models.BooleanField(default = False)
     comprehensive = models.BooleanField(default = False)
+    total_policies = models.IntegerField(default = 0)
     
     def __str__(self):
         return f'Policy {self.policy_id}, {self.premium}, {self.customer_id}'
