@@ -18,7 +18,7 @@ class CustomerModelTest(TestCase):
                                                 region = "North", 
                                                 gender = "Male")
     def test_region_field(self):
-        self.assertEqual(self.customer.region,"N")
+        self.assertEqual(self.customer.region,"North")
         
     def test_validity_of_region(self):
         self.customer.region = "North"
