@@ -15,13 +15,13 @@ class DateModelTest(TestCase):
 class CustomerModelTest(TestCase):
     def setUp(self):
         self.customer = Customer.objects.create(customer_id = 23, 
-                                                region = "N", 
-                                                gender = "M")
+                                                region = "North", 
+                                                gender = "Male")
     def test_region_field(self):
         self.assertEqual(self.customer.region,"N")
         
     def test_validity_of_region(self):
-        self.customer.region = "N"
+        self.customer.region = "North"
         try :
             self.customer.full_clean()
         except ValidationError :
