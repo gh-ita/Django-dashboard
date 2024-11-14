@@ -1,5 +1,5 @@
 from django.urls import path
-from views.api_views import BatchDataUploadView
+from .views import BatchDataUploadView
 
 
 urlpatterns = [
