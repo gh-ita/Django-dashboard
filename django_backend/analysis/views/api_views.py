@@ -3,6 +3,9 @@ import logging
 from rest_framework import generics
 from ..serializers import BatchDataSerializer
 from rest_framework.exceptions import ValidationError
+import requests 
+import logging
+from django.conf import settings
 
 # Set up logging
 logger = logging.getLogger(__name__)
@@ -30,6 +33,10 @@ class BatchDataUploadView(generics.CreateAPIView):
             
             logger.debug(f"Batch data written to {file_path}.")
             
+        
         except Exception as e:
             logger.error(f"Error occurred while processing the batch data: {str(e)}")
             raise ValidationError(f"Error occurred while processing the batch data: {str(e)}")
+        
+        
+
